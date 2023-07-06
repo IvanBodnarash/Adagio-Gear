@@ -76,18 +76,49 @@ function closeNav() {
 
 // TOOLTIP
 
-let addToCartBtns = document.querySelectorAll('[data-tooltip]:focus');
+// let addToCartBtns = document.querySelectorAll('.add__to__cart_btn[data-tooltip]');
+// let tooltip = document.querySelector('.tooltip');
 
-addToCartBtns.forEach(addToCartBtn => {
-    addToCartBtn.addEventListener('focus', function(e) {
-        // let tooltip = e.target.nextElementSibling;
-        // tooltip.style.opacity = '1';
+// addToCartBtns.forEach(addToCartBtn => {
+//     addToCartBtn.addEventListener('click', function(e) {
+//         tooltip.style.opacity = '1';
 
-        setTimeout(function() {
-            e.target.style.opacity = '0';
-        }, 2000);
+//         setTimeout(function() {
+//             tooltip.style.opacity = '0';
+//         }, 2000);
 
-        e.preventDefault();
+//         e.target.classList.add('animate-button');
+
+//         setTimeout(function() {
+//             e.target.classList.remove('animate-button');
+//         }, 500);
+
+//         e.preventDefault();
+//     });
+// });
+
+let addToCartBtnWrappers = document.querySelectorAll('.input__group_wrapper');
+
+addToCartBtnWrappers.forEach(wrapper => {
+    let addToCartBtn = wrapper.querySelectorAll('.add__to__cart_btn[data-tooltip]');
+    let tooltip = wrapper.querySelector('.tooltip');
+
+    addToCartBtn.forEach(button => {
+        button.addEventListener('click', function(e) {
+            tooltip.style.opacity = '1';
+
+            setTimeout(function() {
+                tooltip.style.opacity = '0';
+            }, 2000);
+    
+            addToCartBtn.classList.add('animate-button');
+    
+            setTimeout(function() {
+                addToCartBtn.classList.remove('animate-button');
+            }, 500);
+    
+            e.preventDefault();
+        });
     });
 });
 

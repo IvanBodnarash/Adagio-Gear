@@ -495,7 +495,6 @@ footer {
     padding-bottom: 30px;
     color: rgb(167, 167, 167);
 }
-
 .input__group {
     margin-top: 20px;
     margin-left: 20px;
@@ -506,7 +505,7 @@ footer {
 .input__group input {
     font-size: 18px;
     height: 30px;
-    width: 45px;
+    max-width: 45px;
     text-align: center;
     border: none;
 }
@@ -525,7 +524,7 @@ footer {
 .input__group button:hover {
     background-color: #444;
 }
-[data-tooltip] {
+/* [data-tooltip] {
     position: relative;
 }
 [data-tooltip]::after {
@@ -541,8 +540,49 @@ footer {
     opacity: 0;
     transition: 1s;
 }
-[data-tooltip]:focus::after {
-    opacity: 1;
+[data-tooltip]:focus:after {
     top: 0;
     transition: 1s;
+    animation: tooltip 3s ease-in-out;
+} */
+/* @keyframes tooltip {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+} */
+.input__group_wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.tooltip {
+    top: 18px;
+    position: relative;
+    width: 300px;
+    height: fit-content;
+    transform: translateX(20%);
+    background-color: #aaaaaa;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1s;
+}
+.animate-button {
+    animation: buttonAnimation 0.5s;
+}
+@keyframes buttonAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.04);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
