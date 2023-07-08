@@ -86,7 +86,7 @@
                     <button class="openbtn fade__el" onclick="openNav()">Cart</button>
                 </div>
                 <div class="product__container">
-                    <div class="product__img fade__el monitors">
+                    <div id="productItem" draggable="true" class="product__img fade__el monitors">
                         <img src="img/mkii305-pair_z_original.png" alt="">
                         <img src="img/JBL-logo.png" alt="">
                     </div>
@@ -190,12 +190,13 @@
                     </div>
                     <hr class="text__animation">
                     <p class="shopping__cart_hint text__animation">To add your product move your item into the cart:</p>
-                    <span class="shopping__cart_img text__animation">
+                    <span id="shoppingCart" class="shopping__cart_img text__animation">
                         <img src="img/shopping-cart-icon-illustration-free-vector.png" alt="">
-                        <span class="shopping__cart_counter">5</span>
+                        <span class="shopping__cart_counter">0</span>
                     </span>
                     <div class="products__list text__animation">
                         <!-- <h3>All products</h3> -->
+                        <hr>
                         <details class="list__accordeon">
                             <summary>All products</summary>
                             <div>
@@ -207,6 +208,12 @@
                                 <p>Lorem ipsum dolor sit amet.</p>
                             </div>
                         </details>
+                        <hr>
+                        <div class="total">
+                            <span>Total:</span>
+                            <span>0$</span>
+                        </div>
+                        <button>Checkout</button>
                     </div>
                 </div>
 

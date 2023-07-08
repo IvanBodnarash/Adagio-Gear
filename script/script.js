@@ -76,27 +76,6 @@ function closeNav() {
 
 // TOOLTIP
 
-// let addToCartBtns = document.querySelectorAll('.add__to__cart_btn[data-tooltip]');
-// let tooltip = document.querySelector('.tooltip');
-
-// addToCartBtns.forEach(addToCartBtn => {
-//     addToCartBtn.addEventListener('click', function(e) {
-//         tooltip.style.opacity = '1';
-
-//         setTimeout(function() {
-//             tooltip.style.opacity = '0';
-//         }, 2000);
-
-//         e.target.classList.add('animate-button');
-
-//         setTimeout(function() {
-//             e.target.classList.remove('animate-button');
-//         }, 500);
-
-//         e.preventDefault();
-//     });
-// });
-
 let addToCartBtnWrappers = document.querySelectorAll('.input__group_wrapper');
 
 addToCartBtnWrappers.forEach(wrapper => {
@@ -122,6 +101,20 @@ addToCartBtnWrappers.forEach(wrapper => {
     });
 });
 
+
+// MENU BURGER
+
+const iconMenu = document.querySelector('.menu__icon');
+const menuBody = document.querySelector('.menu__body');
+if (iconMenu) {
+    iconMenu.addEventListener('click', function(e) {
+        document.body.classList.toggle('_lock');
+        iconMenu.classList.toggle('_active');
+        menuBody.classList.toggle('_active');
+    });
+}
+
+
 // PAGE NAVIGATION
 
 const menuLinks = document.querySelectorAll('.menu__link[data-goto]');
@@ -136,6 +129,12 @@ if (menuLinks.length > 0) {
             let gotoBlock = document.querySelector(menuLink.dataset.goto);
             let gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset - document.querySelector('header').offsetHeight;
 
+            if (iconMenu.classList.contains('_active')) {
+                document.body.classList.remove('_lock');
+                iconMenu.classList.remove('_active');
+                menuBody.classList.remove('_active');
+            }
+
             window.scrollTo({
                 top: gotoBlockValue,
                 behavior: "smooth"
@@ -144,3 +143,38 @@ if (menuLinks.length > 0) {
         }
     }
 }
+
+
+// DRAG & DROP FEATURE
+
+window.onload = function () {
+    let productItem = document.querySelector('#productItem');
+
+    productItem.addEventListener('dragstart', function (evt) {
+        evt.dataTransfer.effectAllowed = 'move';
+        evt.dataTransfer.setData('Text', this.id);
+    }, false);
+
+    // productItem.addEventListener('dragend', function (evt) {
+        
+    // })
+
+    let shoppingCart = document.querySelector('#shoppingCart');
+
+    shoppingCart.addEventListener('dragenter', function (evt) {
+        this.classList.add('box__shadow');
+        setTimeout(function (evt) {
+            shoppingCart.classList.remove('box__shadow');
+        }, 1000);
+    }, false);
+
+    shoppingCart.addEventListener('drop', function(evt) {
+        alert('he');
+        return false;
+    });
+}
+
+
+// COUNTER
+
+

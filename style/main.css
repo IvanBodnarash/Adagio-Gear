@@ -11,8 +11,14 @@
     box-sizing: border-box;
 }
 
+html,
 body {
+    height: 100%;
     font-family: 'Poppins', sans-serif;
+}
+
+body._lock {
+    overflow: hidden;
 }
 
 a {
@@ -56,7 +62,7 @@ hr {
 
 }
 .menu__icon {
-
+    display: none;
 }
 .menu__body {
 
@@ -154,7 +160,99 @@ body._touch .menu__list > li._active .menu__arrow {
         transition: all 0.3s ease 0s;
     }
 }
-
+@media (max-width: 767px) {
+    .menu__icon {
+        z-index: 5;
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 18px;
+        cursor: pointer;
+    }
+    .menu__icon span,
+    .menu__icon::before,
+    .menu__icon::after {
+        left: 0;
+        position: absolute;
+        height: 10%;
+        width: 100%;
+        transition: all 0.3s ease 0s;
+        background-color: white;
+    }
+    .menu__icon::before,
+    .menu__icon::after {
+        content: '';
+    }
+    .menu__icon::before {
+        top: 0;
+    }
+    .menu__icon::after {
+        bottom: 0;
+    }
+    .menu__icon span {
+        top: 50%;
+        transform: scale(1) translate(0px, -50%);
+    }
+    .menu__icon._active span {
+        transform: scale(0) translate(0px, -50%);
+    }
+    .menu__icon._active::before {
+        top: 50%;
+        transform: rotate(-45deg) translate(0px, -50%);
+    }
+    .menu__icon._active::after {
+        bottom: 50%;
+        transform: rotate(45deg) translate(0px, 50%);
+    }
+    .menu__body {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 100px 30px 30px 30px;
+        transition: left 0.3s ease 0s;
+        overflow: auto;
+    }
+    .menu__body._active {
+        left: 0;
+    }
+    .menu__body::before {
+        content: '';
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        height: 70px;
+        background-color: #000;
+        z-index: 2;
+    }
+    .menu__list > li {
+        flex-wrap: wrap;
+        margin: 0px 0px 30px 0px;
+    }
+    .menu__list > li:last-child {
+        margin-bottom: 0;
+    }
+    .menu__list > li._active .menu__sub-list {
+        display: block;
+    }
+    .menu__link {
+        font-size: 24px;
+    }
+    .menu__sub-list {
+        position: relative;
+        background-color: #fff;
+        flex: 1 1 100%;
+        margin: 20px 0px 0px 0px;
+        display: none;
+    }
+    .menu__sub-link {
+        font-size: 20px;
+        color: #000;
+    }
+}
 
 /* MAIN CONTENT */
 
@@ -318,14 +416,20 @@ aside hr {
 .shopping__cart_img {
     display: flex;
     justify-content: center;
+    align-items: center;
+    padding: 5px;
+    transition: all 1s;
+    /* width: 200px; */
+}
+.box__shadow {
+    box-shadow: #4f4f4f6d 1px 1px 20px;
 }
 .shopping__cart_img img {
     width: 150px;
-    filter: sepia (100%);
     transition: all 1s;
 }
-.shopping__cart_img img:hover {
-    scale: 1.1;
+.shopping__cart_img:hover {
+    scale: 1.03;
     transition: all 1s;
 }
 .shopping__cart_counter {
@@ -350,6 +454,7 @@ aside hr {
     padding-left: 15px;
     padding-right: 15px;
     transition: all 0.5s ease;
+    overflow: auto;
 }
 .shopping__cart_container .closebtn {
     position: absolute;
@@ -396,6 +501,25 @@ aside hr {
     100% {
         opacity: 0;
     }
+}
+.products__list button {
+    width: 100%;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #000000;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    /* align-self: center; */
+}
+.products__list button:hover {
+    background-color: #444;
+}
+.total {
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
 }
 /* .side__pannel_btn {
     position: absolute;
@@ -561,13 +685,15 @@ footer {
 .tooltip {
     top: 18px;
     position: relative;
-    width: 300px;
+    /* max-width: 300px; */
+    width: 40%;
     height: fit-content;
     transform: translateX(20%);
     background-color: #aaaaaa;
     color: white;
     text-align: center;
     padding: 10px;
+    padding-right: 2%;
     pointer-events: none;
     opacity: 0;
     transition: opacity 1s;
