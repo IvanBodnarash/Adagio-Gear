@@ -83,19 +83,19 @@ addToCartBtnWrappers.forEach(wrapper => {
     let tooltip = wrapper.querySelector('.tooltip');
 
     addToCartBtn.forEach(button => {
-        button.addEventListener('click', function(e) {
+        button.addEventListener('click', function (e) {
             tooltip.style.opacity = '1';
 
-            setTimeout(function() {
+            setTimeout(function () {
                 tooltip.style.opacity = '0';
             }, 2000);
-    
+
             addToCartBtn.classList.add('animate-button');
-    
-            setTimeout(function() {
+
+            setTimeout(function () {
                 addToCartBtn.classList.remove('animate-button');
             }, 500);
-    
+
             e.preventDefault();
         });
     });
@@ -107,7 +107,7 @@ addToCartBtnWrappers.forEach(wrapper => {
 const iconMenu = document.querySelector('.menu__icon');
 const menuBody = document.querySelector('.menu__body');
 if (iconMenu) {
-    iconMenu.addEventListener('click', function(e) {
+    iconMenu.addEventListener('click', function (e) {
         document.body.classList.toggle('_lock');
         iconMenu.classList.toggle('_active');
         menuBody.classList.toggle('_active');
@@ -153,28 +153,40 @@ window.onload = function () {
     productItem.addEventListener('dragstart', function (evt) {
         evt.dataTransfer.effectAllowed = 'move';
         evt.dataTransfer.setData('Text', this.id);
-    }, false);
+    });
 
     // productItem.addEventListener('dragend', function (evt) {
-        
+
     // })
 
     let shoppingCart = document.querySelector('#shoppingCart');
 
+    shoppingCart.addEventListener('dragover', function (evt) {
+        evt.preventDefault();
+    });
+
     shoppingCart.addEventListener('dragenter', function (evt) {
         this.classList.add('box__shadow');
-        setTimeout(function (evt) {
-            shoppingCart.classList.remove('box__shadow');
-        }, 1000);
-    }, false);
+        // setTimeout(function (evt) {
+        // }, 1000);
+    });
 
-    shoppingCart.addEventListener('drop', function(evt) {
-        alert('he');
-        return false;
+    // shoppingCart.addEventListener('dragleave', function (evt) {
+        // });
+        
+    shoppingCart.addEventListener('drop', function (evt) {
+        this.classList.remove('box__shadow');
+        productQtyVisual();
+        evt.preventDefault();
     });
 }
 
 
 // COUNTER
 
+let productCounter = document.querySelector('.shopping__cart_counter');
 
+function productQtyVisual() {
+    if (productCounter.textContent === '0') productCounter.textContent = '';
+    productCounter.textContent++;
+}
