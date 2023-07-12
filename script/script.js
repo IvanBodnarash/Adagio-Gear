@@ -147,12 +147,38 @@ if (menuLinks.length > 0) {
 
 // DRAG & DROP FEATURE
 
-window.onload = function () {
-    let productItem = document.querySelector('#productItem');
+let productListObj = [
+    {
+        id: 0,
+        name: 'JBL 305P MkII 5-inch Powered Studio Monitor Pair',
+        price: 350.00,
+        qty: 15,
+        ordered: 0
+    },
+    {
+        id: 1,
+        name: 'Audio Technica ATH-R70x',
+        price: 479.00,
+        qty: 25,
+        ordered: 0
+    },
+    {
+        id: 2,
+        name: 'Native Instruments 21066 Komplete Audio 6 MK2',
+        price: 319.00,
+        qty: 19,
+        ordered: 0
+    }
+];
 
-    productItem.addEventListener('dragstart', function (evt) {
-        evt.dataTransfer.effectAllowed = 'move';
-        evt.dataTransfer.setData('Text', this.id);
+window.onload = function () {
+    let productItems = document.querySelectorAll('.product__img');
+
+    productItems.forEach(productItem => {
+        productItem.addEventListener('dragstart', function (evt) {
+            evt.dataTransfer.effectAllowed = 'move';
+            evt.dataTransfer.setData('Text', this.id);
+        });
     });
 
     // productItem.addEventListener('dragend', function (evt) {
@@ -167,22 +193,46 @@ window.onload = function () {
 
     shoppingCart.addEventListener('dragenter', function (evt) {
         this.classList.add('box__shadow');
-        // setTimeout(function (evt) {
-        // }, 1000);
-    });
+    }, false);
 
-    // shoppingCart.addEventListener('dragleave', function (evt) {
-        // });
-        
+    shoppingCart.addEventListener('dragleave', function (evt) {
+        this.classList.remove('box__shadow');
+    }, false);
+
     shoppingCart.addEventListener('drop', function (evt) {
         this.classList.remove('box__shadow');
-        productQtyVisual();
         evt.preventDefault();
+        productQtyVisual();
+
+        let productId = evt.dataTransfer.getData('Text');
+        let product = productListObj.find(item => item.name === productId);
+        let productList = document.querySelector('#productList');
+
+        if (product && product.qty > 0) {
+            product.ordered++;
+            product.qty--;
+            let listHr = document.createElement('hr');
+            let listContainer = document.createElement('div');
+            // listContainer.classList.add('product__list_price')
+            let listItem = document.createElement('p');
+            listItem.textContent = `${product.name}: (${product.ordered})`;
+            productList.appendChild(listHr);
+            productList.appendChild(listContainer);
+            listContainer.appendChild(listItem);
+        }
+
     });
 }
 
 
 // COUNTER
+
+// let totalProductListObj = new Object();
+
+
+
+// let totalCost
+
 
 let productCounter = document.querySelector('.shopping__cart_counter');
 
@@ -190,3 +240,5 @@ function productQtyVisual() {
     if (productCounter.textContent === '0') productCounter.textContent = '';
     productCounter.textContent++;
 }
+
+
