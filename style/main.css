@@ -404,7 +404,9 @@ main hr {
 }
 
 /* SIDE SHOPPING PANNEL */
-
+aside {
+    
+}
 aside hr {
     margin: 10px 0px;
     /* background-color: #000; */
@@ -479,6 +481,7 @@ aside hr {
 }
 .list__accordeon {
     /* transition: all 2s ease-in-out; */
+    overflow: scroll;
 }
 .list__accordeon div {
     animation: spoiler 2s;
@@ -502,6 +505,9 @@ aside hr {
         opacity: 0;
     }
 }
+#product__list {
+    overflow: scroll;
+}
 .products__list button {
     width: 100%;
     font-size: 20px;
@@ -520,6 +526,17 @@ aside hr {
     display: flex;
     justify-content: space-between;
     padding-bottom: 10px;
+}
+.product__list_price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.product__list_price button {
+    width: 50px;
+}
+.name__product_list {
+    width: 50%;
 }
 /* .side__pannel_btn {
     position: absolute;
