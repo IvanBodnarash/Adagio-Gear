@@ -9,6 +9,20 @@
 
     <link rel="stylesheet" href="style/main.css">
     <link rel="stylesheet" href="style/media.css">
+    <style>
+        .item div {
+            background: rgb(0, 0, 0);
+            background: rgba(0, 0, 0, 0.5);
+            position: relative;
+            display: none;
+        }
+        .item {
+            overflow: hidden;
+        }
+        [draggable=true] {
+            cursor: move;
+        }
+    </style>
 
 
 </head>
@@ -86,10 +100,17 @@
                     <button class="openbtn fade__el" onclick="openNav()">Cart</button>
                 </div>
                 <div class="product__container">
-                    <div id="productItem" data-id="1" class="product__img fade__el monitors">
-                        <img src="img/mkii305-pair_z_original.png" alt="">
-                        <img src="img/JBL-logo.png" alt="">
-                    </div>
+                    <ul id="products">
+                        <li><a id="productItem" data-id="1" class="item product__img fade__el monitors">
+                                <img src="img/mkii305-pair_z_original.png" alt="">
+                                <img src="img/JBL-logo.png" alt="">
+                                <!-- <div>
+                                    <p><strong>JBL 305P MkII 5-inch Powered Studio Monitor Pair</strong></p>
+                                    <p><strong>Price</strong>: <span>$350.00</span></p>
+                                    <p><strong>Quantity</strong>: <span>10</span></p>
+                                </div> -->
+                            </a></li>
+                    </ul>
                     <div class="product__description fade__el">
                         <div class="product__description_header">
                             <h1>JBL 305P MkII 5-inch Powered Studio Monitor Pair</h1>
@@ -110,7 +131,7 @@
                         <div class="input__group_wrapper">
                             <div class="input__group">
                                 <input type="number" min="1" max="99" maxlength="2" class="cart__qty" placeholder="1">
-                                <button onclick="addToCart(1)" class="add__to__cart_btn" id="addToCartBtn" data-tooltip="Added to cart">Add to
+                                <button class="add__to__cart_btn" id="addToCartBtn" data-tooltip="Added to cart">Add to
                                     cart</button>
                             </div>
                             <div class="tooltip">Added to cart</div>
@@ -148,7 +169,7 @@
                         <div class="input__group_wrapper">
                             <div class="input__group">
                                 <input type="number" min="1" max="99" maxlength="2" class="cart__qty" placeholder="1">
-                                <button onclick="addToCart(2)" class="add__to__cart_btn" id="addToCartBtn" data-tooltip="Added to cart">Add to
+                                <button class="add__to__cart_btn" id="addToCartBtn" data-tooltip="Added to cart">Add to
                                     cart</button>
                             </div>
                             <div class="tooltip">Added to cart</div>
@@ -186,7 +207,7 @@
                         <div class="input__group_wrapper">
                             <div class="input__group">
                                 <input type="number" min="1" max="99" maxlength="2" class="cart__qty" placeholder="1">
-                                <button onclick="addToCart(3)" class="add__to__cart_btn" id="addToCartBtn" data-tooltip="Added to cart">Add to
+                                <button class="add__to__cart_btn" id="addToCartBtn" data-tooltip="Added to cart">Add to
                                     cart</button>
                             </div>
                             <div class="tooltip">Added to cart</div>
@@ -212,37 +233,19 @@
                         <img src="img/shopping-cart-icon-illustration-free-vector.png" alt="">
                         <span class="shopping__cart_counter">0</span>
                     </span>
-                    <div class="products__list text__animation">
+                    <div id="cart" class="products__list text__animation">
                         <hr>
-                        <details class="list__accordeon">
+                        <ul></ul>
+                        <!-- <details class="list__accordeon">
                             <summary>All products</summary>
                             <div id="productList">
-                                <!-- <hr>
-                                <div data-id="' + productId + '" class="product__list_price">
-                                    <span class="name__product_list">JBL Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
-                                    <span class="price__product_list">$500</span>
-                                    <p class="count__product_list">1</p>
-                                    <button class="delete">&#10005;</button>
-                                </div>
-                                <hr>
-                                <div data-id="' + productId + '" class="product__list_price">
-                                    <span class="name__product_list">JBL Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
-                                    <span class="price__product_list">$500</span>
-                                    <p class="count__product_list">1</p>
-                                    <button class="delete">&#10005;</button>
-                                </div> -->
-                                <!-- <hr>
-                                <p>Lorem ipsum dolor sit amet.</p>
-                                <hr>
-                                <p>Lorem ipsum dolor sit amet.</p>
-                                <hr>
-                                <p>Lorem ipsum dolor sit amet.</p> -->
                             </div>
-                        </details>
+                        </details> -->
                         <hr>
                         <div class="total__div">
                             <span>Total:</span>
-                            <span class="total">0$</span>
+                            <p id="total">$<span>0.00</span></p>
+                            <h2>Drop here to add to cart</h2>
                         </div>
                         <button>Checkout</button>
                     </div>
@@ -300,8 +303,8 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="libs/jquery.ndd.js"></script>
-    <script src="libs/jquery-ui.min.js"></script>
-    <script src="script/dragdrop.js"></script>
+    <!-- <script src="libs/jquery-ui.min.js"></script> -->
+    <!-- <script src="script/dragdrop.js"></script> -->
     <script src="script/script.js"></script>
 </body>
 

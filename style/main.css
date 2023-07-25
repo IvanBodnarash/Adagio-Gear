@@ -287,17 +287,20 @@ aside {
 
 .product__container {
     display: flex;
+    z-index: 5;
+    background-color: white;
 }
 .product__img {
     width: 45%;
     min-height: 400px;
-    /* background-color: #a3a3a3; */
+    background-color: white;
     border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    transition: .5s ease;
+    transition: all 0.05s ease-in-out;
+    z-index: 6;
 }
 .product__img img {
     transition: all 0.5s ease-in-out;
@@ -404,9 +407,10 @@ main hr {
 }
 
 /* SIDE SHOPPING PANNEL */
-aside {
-    
-}
+
+/* aside {
+    max-height: 500px;
+} */
 aside hr {
     margin: 10px 0px;
     /* background-color: #000; */
@@ -444,6 +448,7 @@ aside hr {
 .shopping__cart_container {
     margin: 15px;
     min-height: 250px;
+    max-height: 580px;
     width: 0;
     position: fixed;
     z-index: 4;
@@ -456,7 +461,7 @@ aside hr {
     padding-left: 15px;
     padding-right: 15px;
     transition: all 0.5s ease;
-    overflow: auto;
+    overflow: scroll;
 }
 .shopping__cart_container .closebtn {
     position: absolute;
@@ -466,6 +471,12 @@ aside hr {
     top: 6px;
     color: #000;
     transition: all 0.5s ease-in-out;
+}
+.shopping__cart_hint {
+    text-align: center;
+    margin: auto;
+    width: 80%;
+    display: none;
 }
 .openbtn {
     font-size: 20px;
@@ -481,7 +492,7 @@ aside hr {
 }
 .list__accordeon {
     /* transition: all 2s ease-in-out; */
-    overflow: scroll;
+    /* overflow: scroll; */
 }
 .list__accordeon div {
     animation: spoiler 2s;
@@ -521,7 +532,7 @@ aside hr {
 .products__list button:hover {
     background-color: #444;
 }
-.total {
+.total__div {
     font-size: 18px;
     display: flex;
     justify-content: space-between;
@@ -537,6 +548,9 @@ aside hr {
 }
 .name__product_list {
     width: 50%;
+}
+[draggable=true] {
+    cursor: move;
 }
 /* .side__pannel_btn {
     position: absolute;
