@@ -714,10 +714,13 @@ footer {
     flex-wrap: wrap;
 }
 .tooltip {
-    top: 18px;
-    position: relative;
+    /* top: 108px; */
+    bottom: 80px;
+    right: 140px;
+    position: fixed;
+    z-index: 10;
     /* max-width: 300px; */
-    width: 40%;
+    width: 15%;
     height: fit-content;
     transform: translateX(20%);
     background-color: #aaaaaa;
@@ -726,6 +729,7 @@ footer {
     padding: 10px;
     padding-right: 2%;
     pointer-events: none;
+    /* display: none; */
     opacity: 0;
     transition: opacity 1s;
 }

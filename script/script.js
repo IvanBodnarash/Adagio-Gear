@@ -74,71 +74,112 @@ function closeNav() {
     panel.style.padding = '0';
 }
 
+// PRODUCT ARRAY
+
 let productListObj = [
     {
         id: 1,
         name: 'JBL 305P MkII 5-inch Powered Studio Monitor Pair',
         price: 350.00,
         qty: 15,
-        ordered: 0
+        ordered: 0,
+        productTotal: 0
     },
     {
         id: 2,
         name: 'Audio Technica ATH-R70x',
         price: 479.00,
         qty: 25,
-        ordered: 0
+        ordered: 0,
+        productTotal: 0
     },
     {
         id: 3,
         name: 'Native Instruments 21066 Komplete Audio 6 MK2',
         price: 319.00,
         qty: 19,
-        ordered: 0
+        ordered: 0,
+        productTotal: 0
     }
 ];
 
-// TOOLTIP & ADDING TO CART LOGIC
+// TOOLTIP AND BUTTON ANIMATION
 
-let addToCartBtnWrappers = document.querySelectorAll('.input__group_wrapper');
+let tooltip = document.querySelector('.tooltip');
 
-addToCartBtnWrappers.forEach(wrapper => {
-    let addToCartBtn = wrapper.querySelectorAll('.add__to__cart_btn[data-tooltip]');
-    let tooltip = wrapper.querySelector('.tooltip');
+function showTooltip() {
+    tooltip.style.opacity = '0.5';
 
-    addToCartBtn.forEach(button => {
-        button.addEventListener('click', function (e) {
-            tooltip.style.opacity = '1';
+    setTimeout(function () {
+        tooltip.style.opacity = '0';
+    }, 2000);
+}
 
-            setTimeout(function () {
-                tooltip.style.opacity = '0';
-            }, 2000);
+function btnAnimation() {
+    let buttons = document.querySelectorAll('.add__to__cart_btn');
 
-            addToCartBtn.classList.add('animate-button');
-
-            setTimeout(function () {
-                addToCartBtn.classList.remove('animate-button');
-            }, 500);
-
-            e.preventDefault();
-        });
+    buttons.forEach(btn => {
+        btn.classList.add('animate-button');
+        
+        setTimeout(function () {
+            btn.classList.remove('animate-button');
+        }, 500);
     });
-});
 
-function addToCart(productId) {
+
+}
+
+// ADDING TO CART LOGIC
+
+let productQtyInput = document.querySelectorAll('#qtyInpt');
+
+function addToCart(productId, inputId) {
     const productToAdd = productListObj.find((product) => product.id === productId);
 
-    addToCartFunction(productToAdd);
+    addToCartFunction(productToAdd, inputId);
 
     updateCartInterface();
 }
 
-function addToCartFunction(product) {
-    console.log('Product', product.name, 'added!')
+function addToCartFunction(product, inputId) {
+
+    const productQtyInput = document.getElementById(inputId);
+    const quantity = parseInt(productQtyInput.value);
+
+    if (product.qty === 0) {
+        alert('There is no more product available.');
+    } else if (quantity > product.qty) {
+        alert('Not enough product in stock.');
+    } else if (quantity < 1) {
+        alert('Invalid quantity. Please select at least 1 product.');
+    } else {
+        btnAnimation();
+        showTooltip();
+        // assignEventListenersToButtons();
+        product.ordered += quantity;
+        product.qty -= quantity;
+        product.productTotal += product.price * quantity;
+
+        //     // totlQty = 0;
+        //     // totlQty += quantity;
+
+        productQtyVisual(quantity);
+
+        console.log('Added ' + product.name + ' ' + quantity + ' product(s) to the cart.');
+        console.log('Remaining quantity in stock: ' + product.qty);
+        console.log(product.name + ' Ordered: ' + product.ordered);
+        console.log('Total price: $' + product.productTotal);
+
+        console.log(product);
+
+        //     // if (product.qty != 0) {
+        //     //     assignEventListenersToButtons();
+        //     // }
+    }
+
 }
 
 function updateCartInterface() {
-
 }
 
 
@@ -475,10 +516,13 @@ if (menuLinks.length > 0) {
 
 
 let productCounter = document.querySelector('.shopping__cart_counter');
+let totlQty = 0;
 
-function productQtyVisual() {
+function productQtyVisual(quantity) {
+    totlQty += quantity;
+    console.log(totlQty);
     if (productCounter.textContent === '0') productCounter.textContent = '';
-    productCounter.textContent++;
+    productCounter.textContent = totlQty;
 }
 
 

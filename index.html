@@ -81,6 +81,7 @@
 
         <div class="main__content page__section_home">
             <main>
+                <div class="tooltip">Added to cart</div>
                 <div class="main__header">
                     <h1 class="fade__el">New in Adagio Gear</h1>
                     <button class="openbtn fade__el" onclick="openNav()">Cart</button>
@@ -109,11 +110,11 @@
                         </div>
                         <div class="input__group_wrapper">
                             <div class="input__group">
-                                <input type="number" min="1" max="99" maxlength="2" class="cart__qty" placeholder="1">
-                                <button onclick="addToCart(1)" class="add__to__cart_btn" id="addToCartBtn" data-tooltip="Added to cart">Add to
+                                <input type="number" min="1" max="99" maxlength="2" class="cart__qty" id="qtyInpt1" placeholder="1" value="1">
+                                <button onclick="addToCart(1, 'qtyInpt1')" class="add__to__cart_btn" id="addToCartBtn" data-target="qtyInpt1">Add to
                                     cart</button>
                             </div>
-                            <div class="tooltip">Added to cart</div>
+                            <!-- <div class="tooltip">Added to cart</div> -->
                         </div>
                     </div>
                 </div>
@@ -147,11 +148,11 @@
                         </div>
                         <div class="input__group_wrapper">
                             <div class="input__group">
-                                <input type="number" min="1" max="99" maxlength="2" class="cart__qty" placeholder="1">
-                                <button onclick="addToCart(2)" class="add__to__cart_btn" id="addToCartBtn" data-tooltip="Added to cart">Add to
+                                <input type="number" min="1" max="99" maxlength="2" class="cart__qty" id="qtyInpt2" placeholder="1" value="1">
+                                <button onclick="addToCart(2, 'qtyInpt2')" class="add__to__cart_btn" id="addToCartBtn" data-target="qtyInpt2">Add to
                                     cart</button>
                             </div>
-                            <div class="tooltip">Added to cart</div>
+                            <!-- <div class="tooltip">Added to cart</div> -->
                         </div>
                     </div>
                 </div>
@@ -185,11 +186,11 @@
                         </div>
                         <div class="input__group_wrapper">
                             <div class="input__group">
-                                <input type="number" min="1" max="99" maxlength="2" class="cart__qty" placeholder="1">
-                                <button onclick="addToCart(3)" class="add__to__cart_btn" id="addToCartBtn" data-tooltip="Added to cart">Add to
+                                <input type="number" min="1" max="99" maxlength="2" class="cart__qty" id="qtyInpt3" placeholder="1" value="1">
+                                <button onclick="addToCart(3, 'qtyInpt3')" class="add__to__cart_btn" id="addToCartBtn" data-target="qtyInpt3">Add to
                                     cart</button>
                             </div>
-                            <div class="tooltip">Added to cart</div>
+                            <!-- <div class="tooltip">Added to cart</div> -->
                         </div>
                     </div>
                 </div>
@@ -298,10 +299,9 @@
         </footer>
     </div>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="libs/jquery.ndd.js"></script>
-    <script src="libs/jquery-ui.min.js"></script>
-    <script src="script/dragdrop.js"></script>
+    <script src="libs/jquery-ui.min.js"></script> -->
     <script src="script/script.js"></script>
 </body>
 
