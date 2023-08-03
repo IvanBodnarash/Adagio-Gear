@@ -497,6 +497,10 @@ aside hr {
 .list__accordeon div {
     animation: spoiler 2s;
 }
+.remove__btn_cart {
+    margin: 10px 0 10px 0;
+    width: 10%;
+}
 /* details[close] div {
     animation: spoilerinv 2s;
 } */
@@ -516,6 +520,9 @@ aside hr {
         opacity: 0;
     }
 }
+/* #productList {
+    text-align: justify;
+} */
 #product__list {
     overflow: scroll;
 }
@@ -549,16 +556,6 @@ aside hr {
 .name__product_list {
     width: 50%;
 }
-[draggable=true] {
-    cursor: move;
-}
-/* .side__pannel_btn {
-    position: absolute;
-    right: 0;
-    padding: 20px;
-    cursor: pointer;
-    background-color: #111;
-} */
 
 /* ABOUT */
 
@@ -679,35 +676,6 @@ footer {
 .input__group button:hover {
     background-color: #444;
 }
-/* [data-tooltip] {
-    position: relative;
-}
-[data-tooltip]::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    width: 300px;
-    left: 150px; 
-    top: -12px;
-    background-color: #aaaaaa;
-    color: white;
-    padding: 10px;
-    pointer-events: none;
-    opacity: 0;
-    transition: 1s;
-}
-[data-tooltip]:focus:after {
-    top: 0;
-    transition: 1s;
-    animation: tooltip 3s ease-in-out;
-} */
-/* @keyframes tooltip {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-} */
 .input__group_wrapper {
     display: flex;
     flex-direction: row;
