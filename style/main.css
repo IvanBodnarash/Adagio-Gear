@@ -159,8 +159,12 @@ body._touch .menu__list > li._active .menu__arrow {
         pointer-events: none;
         transition: all 0.3s ease 0s;
     }
+
 }
 @media (max-width: 767px) {
+    .header {
+        position: fixed;
+    }
     .menu__icon {
         z-index: 5;
         display: block;
@@ -217,6 +221,7 @@ body._touch .menu__list > li._active .menu__arrow {
     }
     .menu__body._active {
         left: 0;
+        transition: all 0.5s ease-in-out;
     }
     .menu__body::before {
         content: '';
@@ -243,14 +248,41 @@ body._touch .menu__list > li._active .menu__arrow {
     }
     .menu__sub-list {
         position: relative;
-        background-color: #fff;
+        background-color: #0000002f;
+        opacity: 0.5;
         flex: 1 1 100%;
         margin: 20px 0px 0px 0px;
         display: none;
     }
     .menu__sub-link {
         font-size: 20px;
-        color: #000;
+        color: #ffffff;
+    }
+    .openbtn {
+        position: fixed;
+        right: 25px;
+    }
+    .product__container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* PRODUCT CONTAINER */
+    
+    .specifications {
+
+    }
+
+    /* ABOUT */
+
+    .about__section {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .about__img {
+        /* height: 10%; */
+        height: 50px;
     }
 }
 
@@ -408,9 +440,6 @@ main hr {
 
 /* SIDE SHOPPING PANNEL */
 
-/* aside {
-    max-height: 500px;
-} */
 aside hr {
     margin: 10px 0px;
     /* background-color: #000; */
@@ -431,7 +460,7 @@ aside hr {
     box-shadow: #4f4f4f6d 1px 1px 20px;
 }
 .shopping__cart_img img {
-    width: 150px;
+    width: 120px;
     transition: all 1s;
 }
 .shopping__cart_img:hover {
@@ -462,6 +491,7 @@ aside hr {
     padding-right: 15px;
     transition: all 0.5s ease;
     overflow: scroll;
+    opacity: 0.9;
 }
 .shopping__cart_container .closebtn {
     position: absolute;
@@ -583,11 +613,12 @@ aside hr {
     line-height: 2;
     padding-bottom: 15px;
 }
-/* .about__section_wrapper hr {
+.about__section_wrapper hr {
+    display: none;
     background-color: white;
     height: 1px;
     margin-bottom: 15px;
-} */
+}
 
 /* FOOTER */
 

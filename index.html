@@ -110,7 +110,7 @@
                         </div>
                         <div class="input__group_wrapper">
                             <div class="input__group">
-                                <input type="number" min="1" max="99" maxlength="2" class="cart__qty" id="qtyInpt1" placeholder="1" value="1">
+                                <input type="number" min="1" max="99" maxlength="2" class="cart__qty" id="qtyInpt1" placeholder="1" value="1" readonly="false">
                                 <button onclick="addToCart(1, 'qtyInpt1')" class="add__to__cart_btn" id="addToCartBtn" data-target="qtyInpt1">Add to
                                     cart</button>
                             </div>
@@ -147,7 +147,7 @@
                         </div>
                         <div class="input__group_wrapper">
                             <div class="input__group">
-                                <input type="number" min="1" max="99" maxlength="2" class="cart__qty" id="qtyInpt2" placeholder="1" value="1">
+                                <input type="number" min="1" max="99" maxlength="2" class="cart__qty" id="qtyInpt2" placeholder="1" value="1" readonly="false">
                                 <button onclick="addToCart(2, 'qtyInpt2')" class="add__to__cart_btn" id="addToCartBtn" data-target="qtyInpt2">Add to
                                     cart</button>
                             </div>
@@ -184,7 +184,7 @@
                         </div>
                         <div class="input__group_wrapper">
                             <div class="input__group">
-                                <input type="number" min="1" max="99" maxlength="2" class="cart__qty" id="qtyInpt3" placeholder="1" value="1">
+                                <input type="number" min="1" max="99" maxlength="2" class="cart__qty" id="qtyInpt3" placeholder="1" value="1" readonly="false">
                                 <button onclick="addToCart(3, 'qtyInpt3')" class="add__to__cart_btn" id="addToCartBtn" data-target="qtyInpt3">Add to
                                     cart</button>
                             </div>
@@ -215,26 +215,7 @@
                         <details class="list__accordeon">
                             <summary>All products</summary>
                             <div id="productList">
-                                <!-- <hr>
-                                <div data-id="' + productId + '" class="product__list_price">
-                                    <span class="name__product_list">JBL Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
-                                    <span class="price__product_list">$500</span>
-                                    <p class="count__product_list">1</p>
-                                    <button class="delete">&#10005;</button>
-                                </div>
-                                <hr>
-                                <div data-id="' + productId + '" class="product__list_price">
-                                    <span class="name__product_list">JBL Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
-                                    <span class="price__product_list">$500</span>
-                                    <p class="count__product_list">1</p>
-                                    <button class="delete">&#10005;</button>
-                                </div> -->
-                                <!-- <hr>
-                                <p>Lorem ipsum dolor sit amet.</p>
-                                <hr>
-                                <p>Lorem ipsum dolor sit amet.</p>
-                                <hr>
-                                <p>Lorem ipsum dolor sit amet.</p> -->
+                                
                             </div>
                         </details>
                         <hr>
@@ -250,8 +231,7 @@
 
         </div>
         <section class="about__section page__section_3">
-            <!-- <div class="about__img"></div> -->
-            <img src="img/d93c0c714f89eaccfa5dac8fac4f2c6a-e1598982141784.webp" alt="">
+            <img class="about__img" src="img/d93c0c714f89eaccfa5dac8fac4f2c6a-e1598982141784.webp" alt="">
             <div class="about__section_wrapper">
                 <h1>Adagio Gear</h1>
                 <hr>

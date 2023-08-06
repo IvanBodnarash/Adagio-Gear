@@ -53,8 +53,14 @@ panel.style.padding = '0';
 let cartBtn = document.querySelector('.openbtn');
 
 function openNav() {
-    panel.style.width = '30%';
-    mainContent.style.width = '70%';
+    if (window.innerWidth <= 820) {
+        panel.style.width = '53%';
+        mainContent.style.width = '100%';
+    } else {
+        panel.style.width = '30%';
+        mainContent.style.width = '70%';
+    }
+
     for (let el of fadeEl) {
         el.classList.remove('showdown__ani');
         el.classList.add('showup__ani');
