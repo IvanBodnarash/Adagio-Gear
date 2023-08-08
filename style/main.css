@@ -269,8 +269,8 @@ body._touch .menu__list > li._active .menu__arrow {
 
     /* PRODUCT CONTAINER */
     
-    .specifications {
-
+    .product__description {
+        
     }
 
     /* ABOUT */
@@ -434,8 +434,76 @@ aside {
 }
 main hr {
     margin: 25px 15px;
-    /* background-color: #000; */
     height: 1px;
+}
+
+.input__group {
+    margin-top: 20px;
+    margin-left: 20px;
+    border: 1px solid black;
+    /* border-radius: 5px; */
+    width: fit-content;
+}
+.input__group input {
+    font-size: 18px;
+    height: 30px;
+    max-width: 45px;
+    text-align: center;
+    border: none;
+}
+.input__group input:focus {
+    visibility: hidden;
+}
+.input__group button {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #000000;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    align-self: flex-start;
+}
+.input__group button:hover {
+    background-color: #444;
+}
+.input__group_wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.tooltip {
+    /* top: 108px; */
+    bottom: 80px;
+    right: 140px;
+    position: fixed;
+    z-index: 10;
+    /* max-width: 300px; */
+    width: 15%;
+    height: fit-content;
+    transform: translateX(20%);
+    background-color: #aaaaaa;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    padding-right: 2%;
+    pointer-events: none;
+    /* display: none; */
+    opacity: 0;
+    transition: opacity 1s;
+}
+.animate-button {
+    animation: buttonAnimation 0.5s;
+}
+@keyframes buttonAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.04);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* SIDE SHOPPING PANNEL */
@@ -484,7 +552,6 @@ aside hr {
     top: 55px;
     right: -15px;
     background-color: #f3f3f3;
-    /* border-left: 1px solid #373737; */
     overflow-x: hidden;
     padding-top: 20px;
     padding-left: 15px;
@@ -509,6 +576,7 @@ aside hr {
     display: none;
 }
 .openbtn {
+    z-index: 5;
     font-size: 20px;
     cursor: pointer;
     background-color: #000000;
@@ -596,7 +664,6 @@ aside hr {
     align-items: center;
 }
 .about__section img {
-    /* width: 60%; */
     height: 500px;
 }
 .about__section_wrapper {
@@ -677,72 +744,4 @@ footer {
     text-align: center;
     padding-bottom: 30px;
     color: rgb(167, 167, 167);
-}
-.input__group {
-    margin-top: 20px;
-    margin-left: 20px;
-    border: 1px solid black;
-    /* border-radius: 5px; */
-    width: fit-content;
-}
-.input__group input {
-    font-size: 18px;
-    height: 30px;
-    max-width: 45px;
-    text-align: center;
-    border: none;
-}
-.input__group input:focus {
-    visibility: hidden;
-}
-.input__group button {
-    font-size: 20px;
-    cursor: pointer;
-    background-color: #000000;
-    color: white;
-    padding: 8px 15px;
-    border: none;
-    align-self: flex-start;
-}
-.input__group button:hover {
-    background-color: #444;
-}
-.input__group_wrapper {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-.tooltip {
-    /* top: 108px; */
-    bottom: 80px;
-    right: 140px;
-    position: fixed;
-    z-index: 10;
-    /* max-width: 300px; */
-    width: 15%;
-    height: fit-content;
-    transform: translateX(20%);
-    background-color: #aaaaaa;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    padding-right: 2%;
-    pointer-events: none;
-    /* display: none; */
-    opacity: 0;
-    transition: opacity 1s;
-}
-.animate-button {
-    animation: buttonAnimation 0.5s;
-}
-@keyframes buttonAnimation {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.04);
-    }
-    100% {
-        transform: scale(1);
-    }
 }

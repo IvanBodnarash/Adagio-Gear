@@ -53,8 +53,11 @@ panel.style.padding = '0';
 let cartBtn = document.querySelector('.openbtn');
 
 function openNav() {
-    if (window.innerWidth <= 820) {
+    if (window.innerWidth <= 820 && window.innerWidth > 460) {
         panel.style.width = '53%';
+        mainContent.style.width = '100%';
+    } else if (window.innerWidth <= 460) {
+        panel.style.width = '100%';
         mainContent.style.width = '100%';
     } else {
         panel.style.width = '30%';
@@ -228,7 +231,7 @@ function removeFromCart(productId) {
 
         // Reducing total in the cart
         totalPrice -= productToRemove.productTotal;
-        // productToRemove.productTotal = 0;
+        productToRemove.productTotal = 0;
 
         // Reducing total quantity in the cart
         totlQty -= productToRemove.ordered;
@@ -250,7 +253,8 @@ function removeFromCart(productId) {
 
         console.log(totalPrice);
 
-        let innHr = document.querySelector('#innerHr').remove();
+        // Removing hr element from all products list
+        const innHr = document.querySelector('#innerHr').remove();
     }
 
 }
