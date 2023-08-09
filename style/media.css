@@ -208,13 +208,13 @@
         width: 90px;
     }
     .headphones img:first-child {
-        width: 250px;
+        width: 230px;
     }
     .headphones img:last-child {
         width: 250px;
     }
     .audio_interface img:first-child {
-        width: 300px;
+        width: 290px;
     }
     .audio_interface img:last-child {
         width: 70px;
@@ -234,6 +234,7 @@
     /* MAIN CONTENT */
 
     .main__header h1 {
+        font-size: 28px;
         width: 80%;
     }
 
@@ -257,6 +258,9 @@
         margin-top: 25px;
         height: 250px;
     }
+    .about__section_wrapper h1 {
+        font-size: 28px;
+    }
 }
 
 @media screen and (max-width: 375px) {
@@ -265,5 +269,29 @@
 
     .about__section img {
         height: 220px;
+    }
+
+    /* PRODUCT CONTAINER */
+
+    .product__img img {
+        z-index: 2;
+    }
+    .monitors img:first-child {
+        width: 260px;
+    }
+    .monitors img:last-child {
+        width: 70px;
+    }
+    .headphones img:first-child {
+        width: 230px;
+    }
+    .headphones img:last-child {
+        width: 200px;
+    }
+    .audio_interface img:first-child {
+        width: 250px;
+    }
+    .audio_interface img:last-child {
+        width: 60px;
     }
 }
