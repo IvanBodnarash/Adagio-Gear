@@ -144,6 +144,8 @@ function btnAnimation() {
 
 let productQtyInput = document.querySelectorAll('#qtyInpt');
 
+let checkoutTotal = document.querySelector('#checkoutTotal');
+
 function addToCart(productId, inputId) {
     const productToAdd = productListObj.find((product) => product.id === productId);
 
@@ -171,6 +173,8 @@ function addToCartFunction(product, inputId) {
         product.qty -= quantity;
         product.productTotal += product.price * quantity;
         totalPrice += product.price * quantity;
+
+        checkoutTotal.innerHTML = '$' + totalPrice;
         // totalPrice += product.productTotal;
 
         //     // totlQty = 0;
@@ -239,6 +243,8 @@ function removeFromCart(productId) {
         // Removing product from the cart
         productToRemove.ordered = 0;
 
+        checkoutTotal.innerHTML = '$' + totalPrice;
+
         // Renewing cart interface
         updateCartInterface();
 
@@ -275,6 +281,71 @@ function productQtyVisualRemove(quantity) {
     if (productCounter.textContent === '0') productCounter.textContent = '';
     productCounter.textContent = totlQty;
 }
+
+// CHECKOUT POPUP APPEARENCE
+
+let checkoutBtn = document.querySelector('#checkoutBtn');
+let popupSection = document.querySelector('#popupSection');
+let blurFx = document.querySelectorAll('#blurFx');
+
+checkoutBtn.addEventListener('click', function () {
+    popupSection.style.display = 'block';
+    blurFx.forEach(e => {
+        e.style.filter = 'blur(5px)';
+    });
+    closeNav();
+});
+
+let closePopup = document.querySelector('#closePopup');
+
+closePopup.addEventListener('click', function() {
+    popupSection.style.display = 'none';
+    blurFx.forEach(e => {
+        e.style.filter = 'blur(0px)';
+    });
+    openNav();
+});
+
+// BANK DATA VALIDATION
+
+// Name on card validation
+
+let cname = document.querySelector('#cname');
+
+cname.addEventListener('input', function() {
+    const userInput = cname.value;
+    // const userInputUpperCase = userInput.toUpperCase();
+
+    const latinLettersOnly = userInput.replace(/[^a-zA-Z ]/g, '');
+    // cname.value = userInputUpperCase;
+    cname.value = latinLettersOnly.toUpperCase();
+});
+
+// Card number validation
+
+let ccnum = document.querySelector('#ccnum'),
+    numbers = /[0-9]/,
+    regExp = /[0-9]{4}/
+
+    ccnum.addEventListener('input', (e) => {
+        if (e.inputType === 'insertText' && !numbers.test(e.data) || ccnum.value.length > 19) {
+            ccnum.value = ccnum.value.slice(0, ccnum.value.length - 1)
+            return
+        }
+
+        // Backspace feature and delete
+        let value = ccnum.value
+        if (e.inputType === 'deleteContentBackward' && regExp.test(value.slice(-4))) {
+            ccnum.value = ccnum.value.slice(0, ccnum.value.length - 1)
+            return
+        }
+
+        // Adding backspace after 4 digits in a row
+        if (regExp.test(value.slice(-4)) && value.length < 19) {
+            ccnum.value += ' '
+        }
+    });
+
 
 
 // MENU BURGER

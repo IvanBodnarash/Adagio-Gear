@@ -7,6 +7,7 @@
     <title>Adagio gear</title>
     <link rel="icon" href="img/logo.webp">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style/main.css">
     <link rel="stylesheet" href="style/media.css">
 
@@ -15,6 +16,9 @@
 
 <body>
     <div class="wrapper">
+
+        <!-- HEADER -->
+
         <header class="header">
             <div class="header__container">
                 <a data-goto=".page__section_home" href="" class="header__logo">
@@ -79,8 +83,10 @@
             </div>
         </header>
 
-        <div class="main__content page__section_home">
-            <main>
+        <!-- MAIN CONTENT -->
+
+        <div id="" class="main__content page__section_home">
+            <main id="blurFx">
                 <div class="tooltip">Added to cart</div>
                 <div class="main__header">
                     <h1 class="fade__el">New in Adagio Gear</h1>
@@ -110,7 +116,7 @@
                         </div>
                         <div class="input__group_wrapper">
                             <div class="input__group">
-                                <input type="number" min="1" max="99" maxlength="2" class="cart__qty" id="qtyInpt1" placeholder="1" value="1" readonly="false">
+                                <input type="number" min="1" max="99" maxlength="2" class="cart__qty" id="qtyInpt1" placeholder="1" value="1">
                                 <button onclick="addToCart(1, 'qtyInpt1')" class="add__to__cart_btn" id="addToCartBtn" data-target="qtyInpt1">Add to
                                     cart</button>
                             </div>
@@ -147,7 +153,7 @@
                         </div>
                         <div class="input__group_wrapper">
                             <div class="input__group">
-                                <input type="number" min="1" max="99" maxlength="2" class="cart__qty" id="qtyInpt2" placeholder="1" value="1" readonly="false">
+                                <input type="number" min="1" max="99" maxlength="2" class="cart__qty" id="qtyInpt2" placeholder="1" value="1">
                                 <button onclick="addToCart(2, 'qtyInpt2')" class="add__to__cart_btn" id="addToCartBtn" data-target="qtyInpt2">Add to
                                     cart</button>
                             </div>
@@ -184,7 +190,7 @@
                         </div>
                         <div class="input__group_wrapper">
                             <div class="input__group">
-                                <input type="number" min="1" max="99" maxlength="2" class="cart__qty" id="qtyInpt3" placeholder="1" value="1" readonly="false">
+                                <input type="number" min="1" max="99" maxlength="2" class="cart__qty" id="qtyInpt3" placeholder="1" value="1">
                                 <button onclick="addToCart(3, 'qtyInpt3')" class="add__to__cart_btn" id="addToCartBtn" data-target="qtyInpt3">Add to
                                     cart</button>
                             </div>
@@ -223,14 +229,121 @@
                             <span>Total:</span>
                             <span class="total">0$</span>
                         </div>
-                        <button>Checkout</button>
+                        <button id="checkoutBtn">Checkout</button>
                     </div>
                 </div>
 
             </aside>
 
         </div>
-        <section class="about__section page__section_3">
+
+        <!-- POPUP -->
+
+        <div id="popupSection" class="popup" style="display: none;">
+            <span class="close__popup" id="closePopup"><b>x</b></span>
+            <form action="">
+                <div class="popup__wrapper">
+                    <div class="popup__billing popup__row">
+                        <h2>Billing Address</h2>
+    
+                        <div class="popup__item">
+                            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+                            <input type="text" id="fname" name="firstname" placeholder="Full Name">
+                        </div>
+    
+                        <div class="popup__item">
+                            <label for="email"><i class="fa fa-envelope"></i>Email</label>
+                            <input type="text" id="email" name="email" placeholder="Email">
+                        </div>
+    
+
+                        <div class="popup__item">
+                            <label for="adr"><i class="fa fa-adress-card-o"></i>Address</label>
+                            <input type="text" id="adr" name="address" placeholder="228 Central Street">
+                        </div>
+    
+
+                        <div class="popup__item">
+                            <label for="city"><i class="fa fa-institution"></i>City</label>
+                            <input type="text" id="city" name="city" placeholder="Los Angeles">
+                        </div>
+    
+
+                        <div class="popup__sub_container">
+                            <div class="popup__item">
+                                <div class="popup__sub_state popup__sub_2">
+                                    <label for="state">State</label>
+                                    <input type="text" name="state" id="state" placeholder="">
+                                </div>
+                            </div>
+        
+    
+                            <div class="popup__item">
+                                <div class="popup__sub_zip popup__sub_2">
+                                    <label for="zip">Zip</label>
+                                    <input type="text" name="zip" id="zip" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="popup__payment popup__row">
+                        <h2>Payment</h2>
+                        <div class="popup__item">
+                            <label for="fname">Accepted Cards</label>
+                            <div class="icon-container">
+                                <i class="fa fa-cc-visa" style="color: navy;"></i>
+                                <i class="fa fa-cc-amex" style="color: blue;"></i>
+                                <i class="fa fa-cc-mastercard" style="color: red;"></i>
+                                <i class="fa fa-cc-discover" style="color: orange;"></i>
+                            </div>
+                        </div>
+
+                        <div class="popup__item card__name">
+                            <label for="cname">Name on Card</label>
+                            <input type="text" name="cardname" id="cname" placeholder="">
+                        </div>
+    
+                        <div class="popup__item">
+                            <label for="ccnum">Credit card number</label>
+                            <input type="text" name="cardnumber" id="ccnum" placeholder="">
+                        </div>
+    
+                        <div class="popup__item">
+                            <label for="expmonth">Exp Month</label>
+                            <input type="text" name="expmonth" id="expmonth" placeholder="">
+                        </div>
+    
+                        <div class="popup__sub_container">
+                            <div class="popup__item popup__sub_2">
+                                <label for="expyear">Exp Year</label>
+                                <input type="text" name="expyear" id="expyear" placeholder="">
+                            </div>
+    
+                            <div class="popup__item popup__sub_2">
+                                <label for="cvv">CVV</label>
+                                <input type="text" name="cvv" id="cvv" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="popup__sub_checkbox">
+                    <label for="">
+                        <input type="checkbox" checked="checked" name="sameadr" id="">Shipping adress same as billing
+                    </label>
+                    <input class="pay__btn" type="submit" value="Continue to checkout" name="" id="" class="">
+                </div>
+            </form>
+            <div class="popup__container_total">
+                <span><b>Total:</b></span>
+                <p><b id="checkoutTotal">0</b></p>
+            </div>
+        </div>
+
+        <!-- ABOUT SECTION -->
+
+        <section class="about__section page__section_3" id="blurFx">
             <img class="about__img" src="img/d93c0c714f89eaccfa5dac8fac4f2c6a-e1598982141784.webp" alt="">
             <div class="about__section_wrapper">
                 <h1>Adagio Gear</h1>
@@ -245,7 +358,7 @@
             </div>
         </section>
 
-        <footer class="page__section_4">
+        <footer class="page__section_4" id="blurFx">
             <div class="footer__wrapper">
                 <div class="footer__text">
                     <div class="contacts">
