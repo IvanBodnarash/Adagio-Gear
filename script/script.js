@@ -298,7 +298,7 @@ checkoutBtn.addEventListener('click', function () {
 
 let closePopup = document.querySelector('#closePopup');
 
-closePopup.addEventListener('click', function() {
+closePopup.addEventListener('click', function () {
     popupSection.style.display = 'none';
     blurFx.forEach(e => {
         e.style.filter = 'blur(0px)';
@@ -306,13 +306,14 @@ closePopup.addEventListener('click', function() {
     openNav();
 });
 
-// BANK DATA VALIDATION
+
+// BANK DATA AND BILLING VALIDATION
 
 // Name on card validation
 
 let cname = document.querySelector('#cname');
 
-cname.addEventListener('input', function() {
+cname.addEventListener('input', function () {
     const userInput = cname.value;
     // const userInputUpperCase = userInput.toUpperCase();
 
@@ -325,28 +326,63 @@ cname.addEventListener('input', function() {
 
 let ccnum = document.querySelector('#ccnum'),
     numbers = /[0-9]/,
-    regExp = /[0-9]{4}/
+    regExp = /[0-9]{4}/;
 
-    ccnum.addEventListener('input', (e) => {
-        if (e.inputType === 'insertText' && !numbers.test(e.data) || ccnum.value.length > 19) {
-            ccnum.value = ccnum.value.slice(0, ccnum.value.length - 1)
-            return
-        }
+ccnum.addEventListener('input', (e) => {
+    if (e.inputType === 'insertText' && !numbers.test(e.data) || ccnum.value.length > 19) {
+        ccnum.value = ccnum.value.slice(0, ccnum.value.length - 1);
+        return;
+    }
 
-        // Backspace feature and delete
-        let value = ccnum.value
-        if (e.inputType === 'deleteContentBackward' && regExp.test(value.slice(-4))) {
-            ccnum.value = ccnum.value.slice(0, ccnum.value.length - 1)
-            return
-        }
+    // Backspace feature and delete
+    let value = ccnum.value;
+    if (e.inputType === 'deleteContentBackward' && regExp.test(value.slice(-4))) {
+        ccnum.value = ccnum.value.slice(0, ccnum.value.length - 1);
+        return
+    }
 
-        // Adding backspace after 4 digits in a row
-        if (regExp.test(value.slice(-4)) && value.length < 19) {
-            ccnum.value += ' '
-        }
-    });
+    // Adding backspace after 4 digits in a row
+    if (regExp.test(value.slice(-4)) && value.length < 19) {
+        ccnum.value += ' ';
+    }
+});
 
+// Expire month/year and cvv validation
 
+let expmonth = document.querySelector('#expmonth');
+
+expmonth.addEventListener('input', function () {
+    // const pattern = /^(0[1-9]|1[0-2])$/;
+    const value = expmonth.value;
+    if (value > '12' || !value) {
+        expmonth.value = '';
+    }
+});
+
+let expyear = document.querySelector('#expyear');
+
+expyear.addEventListener('input', function() {
+    const userValue = expyear.value;
+    const date = new Date;
+    const currentYearStr = (date.getFullYear() % 100).toString();
+    const currentYearNum = (date.getFullYear() % 100);
+
+    const userValInt = parseInt(userValue);
+
+    if (userValue < currentYearStr && userValue.length == 2 || userValInt > (currentYearNum + 5)) {
+        expyear.value = '';
+    }
+});
+
+let cvv = document.querySelector('#cvv');
+
+cvv.addEventListener('input', function() {
+    const cvvValue = cvv.value;
+
+    if (!/^\d+$/.test(cvvValue)) {
+        cvv.value = '';
+    }
+});
 
 // MENU BURGER
 

@@ -82,6 +82,21 @@
         width: 25%;
     }
 
+    /* POPUP */
+
+    .popup {
+        width: 70%;
+    }
+    .popup__wrapper {
+        flex-direction: column;
+    }
+    .pay__btn {
+        width: 97%;
+    }
+    .popup__row {
+        width: 100%;
+    }
+
     /* PRODUCT CONTAINER */
 
     .product__description {
