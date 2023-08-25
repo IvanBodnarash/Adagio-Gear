@@ -57,7 +57,7 @@ function openNav() {
         panel.style.width = '53%';
         mainContent.style.width = '100%';
     } else if (window.innerWidth <= 460) {
-        panel.style.width = '100%';
+        panel.style.width = '80%';
         mainContent.style.width = '100%';
     } else {
         panel.style.width = '30%';
@@ -82,6 +82,15 @@ function closeNav() {
     cartBtn.style.display = 'block';
     panel.style.padding = '0';
 }
+
+// document.window.addEventListener('onload', function() {
+//     if (window.innerWidth <= 460) {
+//         panel.style.width = '0';
+//         mainContent.style.width = '100%';
+//         cartBtn.style.display = 'block';
+//         panel.style.padding = '0';
+//     }
+// })
 
 // PRODUCT ARRAY
 

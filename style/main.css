@@ -342,7 +342,7 @@ aside {
     justify-content: center;
     flex-direction: column;
     transition: all 0.05s ease-in-out;
-    z-index: 6;
+    z-index: 3;
 }
 .product__img img {
     transition: all 0.5s ease-in-out;
@@ -490,7 +490,7 @@ main hr {
     /* max-width: 300px; */
     width: 15%;
     height: fit-content;
-    transform: translateX(20%);
+    /* transform: translateX(20%); */
     background-color: #aaaaaa;
     color: white;
     text-align: center;
@@ -522,6 +522,10 @@ aside hr {
     margin: 10px 0px;
     /* background-color: #000; */
     height: 1px;
+}
+#side__panel {
+    padding: 0;
+    width: 0;
 }
 .shopping__cart_header {
     display: flex;
@@ -558,7 +562,7 @@ aside hr {
     max-height: 560px;
     width: 0;
     position: fixed;
-    z-index: 4;
+    z-index: 5;
     top: 55px;
     right: -15px;
     background-color: #f3f3f3;
