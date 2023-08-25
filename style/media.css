@@ -255,6 +255,9 @@
     .popup__row {
         width: 100%;
     }
+    .popup__payment {
+        margin-top: 20px;
+    }
 
     /* PRODUCT CONTAINER */
 
