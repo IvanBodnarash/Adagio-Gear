@@ -30,12 +30,14 @@ if (isMobile.any()) {
     document.body.classList.add('_touch');
 
     let menuArrows = document.querySelectorAll('.menu__arrow');
+    // let list1 = document.querySelector('#list1');
+    // let list2 = document.querySelector('#list2');
     if (menuArrows.length > 0) {
         for (let i = 0; i < menuArrows.length; i++) {
             const menuArrow = menuArrows[i];
             menuArrow.addEventListener('click', function (e) {
                 menuArrow.parentElement.classList.toggle('_active');
-            })
+            });
         }
     }
 

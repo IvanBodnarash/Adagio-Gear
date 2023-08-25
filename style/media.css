@@ -273,6 +273,13 @@
         z-index: 1;
     }
 
+    /* SIDE SHOPPING PANEL */
+
+    .openbtn {
+        top: 45px;
+        margin-right: 3px;
+    }
+
     /* ABOUT */
 
     .about__section_wrapper h1 {
@@ -383,8 +390,8 @@
     /* POPUP */
 
     .popup {
-        top: 100px;
-        height: 780px;
+        top: 80px;
+        height: 700px;
     }
 
     /* PRODUCT CONTAINER */

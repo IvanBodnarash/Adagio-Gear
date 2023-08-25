@@ -33,7 +33,7 @@
                             <li>
                                 <a data-goto=".page__section_1" href="" class="menu__link">Studio Gear</a>
                                 <span class="menu__arrow"></span>
-                                <ul class="menu__sub-list">
+                                <ul class="menu__sub-list" id="list1">
                                     <li>
                                         <a href="" class="menu__sub-link">Studio monitors</a>
                                     </li>
@@ -54,7 +54,7 @@
                             <li>
                                 <a data-goto=".page__section_2" href="" class="menu__link">Instruments</a>
                                 <span class="menu__arrow"></span>
-                                <ul class="menu__sub-list">
+                                <ul class="menu__sub-list" id="list2">
                                     <li>
                                         <a href="" class="menu__sub-link">Classic/Acoustic Guitars</a>
                                     </li>
@@ -86,11 +86,11 @@
         <!-- MAIN CONTENT -->
 
         <div id="blurFx" class="tooltip">Added to cart</div>
+        <button class="openbtn fade__el" onclick="openNav()">Cart</button>
         <div id="" class="main__content page__section_home">
             <main id="blurFx">
                 <div class="main__header">
                     <h1 class="fade__el">New in Adagio Gear</h1>
-                    <button class="openbtn fade__el" onclick="openNav()">Cart</button>
                 </div>
                 <div class="product__container fade__el">
                     <div id="productItem" data-id="1" data-productid="0" draggable="true" class="product__img monitors">
@@ -361,8 +361,8 @@
 
         <!-- ABOUT SECTION -->
 
-        <section class="about__section page__section_3" id="blurFx">
-            <img class="about__img" src="img/d93c0c714f89eaccfa5dac8fac4f2c6a-e1598982141784.webp" alt="">
+        <section class="about__section page__section_3 fade__el" id="blurFx">
+            <img class="about__img fade__el" src="img/d93c0c714f89eaccfa5dac8fac4f2c6a-e1598982141784.webp" alt="">
             <div class="about__section_wrapper">
                 <h1>Adagio Gear</h1>
                 <hr>
@@ -376,7 +376,7 @@
             </div>
         </section>
 
-        <footer class="page__section_4" id="blurFx">
+        <footer class="page__section_4 fade__el" id="blurFx">
             <div class="footer__wrapper">
                 <div class="footer__text">
                     <div class="contacts">
