@@ -15,6 +15,7 @@ html,
 body {
     height: 100%;
     font-family: 'Poppins', sans-serif;
+    color: #3d3d3d;
 }
 
 body._lock {
